@@ -6,7 +6,7 @@
 * Designed by: [Dr. Kevin Wang](mailto:kevinw@comp.hkbu.edu.hk)
 * Q & A: [Piazza](https://piazza.com/class/kodsr5zs2km5ls)
 * Due: 
-  * UAT Due: 27/11/2021 (Sat 12:00 noon)
+  * UAT Due: 24/11/2021 (Wed 12:00 noon)
   * Programming Due: 4/12/2021 (Sat 23:59pm) 
 * Download the starter code: [here](skeleton.zip)
 * Download the demo program: [here](demo.jar)
@@ -175,7 +175,7 @@ Should the teaching team see fit, students may be requested to attend an intervi
 ## Understanding the Assignment (UAT)
 
 Answer the following question that on Moodle.
-Due: 27/11/2021 (Sat 12:00 noon)
+Due: 24/11/2021 (Wed 12:00 noon)
 1. Please draw the hierarchy for the class Cell and its subclasses.
 2. Which method can be used to read the remaining money of a player?
 3. How much does it charge for the property `AAB` if it has a base cost $1000 and two houses built on it?
