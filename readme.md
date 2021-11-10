@@ -117,15 +117,16 @@ You should started with the given skeleton code which can be downloaded here: [D
 
 ## Demo
 
-A sample program can be found here (To be arranged). The sample program provides you an understanding of the program. You do not need to follow the exact wording and output format of the program except for the method `String toString()` of the class `Property` (see the specification above). 
+A sample program can be found here [demo](demo.jar). The sample program provides you an understanding of the program. You do not need to follow the exact wording and output format of the program except for the method `String toString()` of the class `Property` (see the specification above). 
+
+
 
 ## Programming Style and Documentation 
 
-Good programming style (indentation, comments…) is always essential.  Blank lines, spaces between operators/variables (wherever appropriate) and meaningful variable names are required.  You should use constants wherever possible.  Your program should be properly indented.  Good choice of variable names and method names is also essential.  Your program must have proper internal documentation, as described below: 
-Header Block For your java file, there must be a header at the beginning of the file, with (1) a short description explaining the details of your program design; (2) your name; and (3) your UID. 
+Good programming style (indentation, comments) are always essential.  Blank lines, spaces between operators/variables (wherever appropriate) and meaningful variable names are required. Your program should be properly indented.  Good choice of variable names and method names is also essential.  Your program must have proper internal documentation, as described below: 
 
-### Method Header Block 
-For each method, there should be a header with (1) a brief description about what the method does and how it is achieved; (2) a brief note explaining the parameters of the method (if any); and (3) a brief note explaining the return value of the method (if applicable). 
+### Header Block 
+For your java file, there must be a header at the beginning of the file, with your name and your UID. 
 
 ### Inline Comments 
 Wherever necessary and appropriate, you should add inline comments to explain the execution flow of your program. 
@@ -133,10 +134,9 @@ Wherever necessary and appropriate, you should add inline comments to explain th
  
 
 ## Submission 
-For submission, zip the src folder of your IntelliJ project, name the zip file as “XXXXXXXX_assign2.zip” (where XXXXXXXX is your Student ID number), and upload it to Moodle.  If you go for the bonus marks, you should also submit your short explanation inside this zip file. 
+For submission, zip the src folder of your IntelliJ project, name the zip file as “XXXXXXXX_assign3.zip” (where XXXXXXXX is your Student ID number), and upload it to Moodle.  If you go for the bonus marks, you should also submit your short explanation inside this zip file. 
 
 Please be reminded that both the **Late Penalty Rule** and the **Penalty for Plagiarism** are applied strictly to all submissions of this course (including this assignment).   
-
 
 ### Late Penalty Rule
 
@@ -157,10 +157,11 @@ if (lateHour > 0) {
 
  Plagiarism is a serious offence and can be easily detected. Please don't share your code to your classmate even if they are threatening you with friendship. If they don't have the ability to work on something that can compile, they would not be able to change your code to a state that we can't detect the plagiarism. For the first commit of plagiarism, regardless you shared your code or copied code from others, you will receive 0 with an addition of 5 mark penalty. If you commit plagiarism twice, your case will be presented in the exam board and you receive a F directly.
 
+
  
 
 ## Marking Scheme 
-This assignment is worth 9% of the course mark.  There are three elements in the marking scheme: 
+This assignment is worth 8% of the course mark.  There are three elements in the marking scheme: 
 * 5% - Understanding the Assignment Test (UAT)
 * 25% - The program can be compiled.
 * 65% - a working program that functions as specified 
