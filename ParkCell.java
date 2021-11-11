@@ -1,6 +1,4 @@
-public class FunctionCell extends Cell {
+public class ParkCell extends FunctionCell {
     //TODO add some other methods if necessary
-    
 }
-
 
