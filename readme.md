@@ -8,7 +8,6 @@
 * Due: 
   * UAT Due: 24/11/2021 (Wed 12:00 noon)
   * Programming Due: 4/12/2021 (Sat 23:59pm) 
-* Download the starter code: [here](skeleton.zip)
 * Download the demo program: [here](demo.jar)
 * Download everything from the assignment: [here](https://github.com/khwang0/COMP2026-2122PA3/archive/refs/heads/master.zip)
 
@@ -24,29 +23,29 @@
 
 ## Introduction
 
-You are given the opportunity to get familiar with the concept of class, object instantiation, inheritance, and polymorphism. In this assignment we are building a [monopoly game](https://en.wikipedia.org/wiki/Monopoly_(game)). I am pretty sure you have heard about this game and its variants. This is a broad game where players take turns to roll a dice (value 1 to 6) to move on a circular game broad. Players will buy properties or build houses on those properties. If other players move on a player's property, they will need to pay the owner a fee. Some cells like **Jail**, **Car Park**, **Home** will trigger some special events when a player is stepped on it. The game ends when one of the players has no more money.
+You are given the opportunity to get familiar with the concept of class, object instantiation, inheritance, and polymorphism. In this assignment we are building a [monopoly game](https://en.wikipedia.org/wiki/Monopoly_(game)). I am pretty sure you have heard about this game and its variants. This is a broad game where players take turns to roll a dice (value 1 to 6) to move on a circular game broad. Players will buy properties or build houses on those properties. If other players move on a player's property, they will need to pay the owner a fee. Some cells like **Jail**, **Car Park**, **Home** will trigger some special events when a player steps on it. The game ends when one of the players has no more money.
 
 ![monopoly logo](Monopoly_pack_logo.png)
 
 ## Detailed Rule Set
 
-The game board has 22 cells arranged in a circular one-way path (can't go backward). These cells include 16 properties cells, one Home, one Jail, one Car Park, one Goto Jail, one Chance, one Community Chest. Among these 16 properties cells, four of them are train stations, two of them are utilities, plus the rest of them (10) are ordinary property cell.
+The game board has 22 cells arranged in a circular one-way circular path (can't go backward). These cells include 16 properties cells, one **Home**, one **Jail**, one **Car Park**, one **Goto Jail**, one **Chance**, one **Community Chest**. Among these 16 properties cells, four of them are train stations, two of them are utilities, plus the rest of them (10) are ordinary property cells.
 
-Each player has $10000 to begin with. All players start at the position `0`, i.e. Home. Worth noting that they would not receive an addition $2000 when they depart from home. $2000 is given to them each time they move pass or arrive Home.
+Each player has $10000 to begin with. All players start at the position `0`, i.e. **Home**. Worth noting that they would not receive an addition $2000 when they depart from home. $2000 is given to them each time they pass through or arrive Home.
 
 ### Property Cells
 
-All property cells are initially not owned by any player. They can be bought by a player if they are not owned. Once a property cell is owned, it cannot be bought anymore. Each property cell has a `baseCost` which tells how much a player needs to pay when buying this property.
+All property cells are initially not owned by any player. They can be bought by a player if they are not owned. Once a property cell is owned, it cannot be bought anymore. Each property cell has a `baseCost` which tells how much a player needs to pay when he/she buys this property.
 
-When a player move to a property owned by another player (owner), this player will need to pay rent to the owner by the formula prescribed later in this section. Their `money` should be changed accordingly.
+When a player moves to a property owned by another player (owner), this player will need to pay a rent to the owner by the formula prescribed later in this section. Their `money` should be changed accordingly.
 
-When a player move to a property owned by himself/herself, the player will be prompted to build a house **if this is an ordinary property**. There is no upper limit on how many houses a player can built (i.e., if he return to this property again later, he can build another house). Nothing will happen if it is a utility or a train station. Unlike the traditional rule in monopoly, we don't have the *property set* concept which affect the rents and house building rules. The equation related to the property card is as follows.
+When a player moves to a property owned by himself/herself, the player will be prompted to build a house **if this is an ordinary property**. There is no upper limit on how many houses a player can build (i.e., if he returns to this property again later, he can build another house). He cannot build a house on a utility or a train station. Nothing will happen. Unlike the traditional rule in monopoly, we don't have the *property set* concept which affects the rents and house building rules. The equation related to the property card is as follows.
 
 
 | Item | Money |
 |---|---|
-| Cost for building a house |  `baseCost` / 5 |
 | Cost for buying a property | `baseCost` |
+| Cost for building a house |  `baseCost` / 5 |
 | Rent for an ordinary property | `baseCost * (1 + house * 0.5)` where `house` denotes the number of houses built on that property |
 | Rent for train stations | If the owner has one train station, $500. If the owner has two train stations, $1000. If the owner has three stations, $2000. If the owner has four stations $4000. |
 | Rent for utility | If the owner has one utility, the charge is computed by the value of the dice the player rolled multiplied by 10. If the owner has two utilities, the charge is the value of the dice the player rolled multiplied by 100. For example, Alice has owned Library and Canteen. Bob rolls 5 and reach Library. Bob will need to pay Alice 500.  |
@@ -62,11 +61,11 @@ When a player passes the Home cell, he/she will receive $2000 from nowhere. If a
 
 ## Jail
 
-A player moves to a Jail cell does nothing.
+A player moves to a Jail cell (visiting) does nothing.
 
 ## Goto Jail
 
-A player moves to a Goto Jail cell will be directly move to the Jail Cell which is at `Gameboard.JAIL_POSITION` position of the cell. The player cannot get $2000 because of passing by the Home cell. The player then will need to suspend for a turn (can't move) during the imprisonment. 
+A player moves to a Goto Jail cell will be directly move to the Jail Cell which is at `Gameboard.JAIL_POSITION` position of the cell. The player cannot get $2000 because of passing by the Home cell. The player then will need to suspend for a turn (can't move) during the imprisonment. *Note: a person in jail can still receive rent.*
 
 ## Chance and Community Chest
 
@@ -74,11 +73,11 @@ A player moves to a chance or a community chest will incur one of the following 
 * Roll again
 * +1000
 * -1000
-* Being put to Jail
+* Being put to Jail (same as Goto Jail)
 
 ## Other rules
 
-There isn't any trade system or mortgage rules in this assignment. Each time a player will roll one dice to move. Thus, each time a player will move for 1 step to 6 steps if he/she is not in jail.
+There isn't any trade system or mortgage rules in this assignment. Each time a player will roll one dice to move. Thus, each time a player will move for 1 step to 6 steps if he/she is not during imprisonment.
 
 ---
 
@@ -102,22 +101,26 @@ You should started with the given skeleton code which can be downloaded here: [D
 | || `String getName()` - Get the name of the player |
 | || `int getPosition()` - Get the position of where the player is |
 | ||`void charge(int c)` - Charge c dollars from a player. |
-| `PropertyCell` | Representing ordinary property cell  | `Player getOwner()` - return the owner of the cell. Return `null` if it is not owned by any player. |
-| | |   `String toString()` - return a string in the following format: 1) `<property name> owned by <owner's name> : <baseCost>` or 2) `<property name> owned by <owner's name> : <baseCost> House : <house>` Return 1) if the property have no house. Return 2) if the property has more than one house. If the property is not owned, write `-` for the owner's name. |
-| | | `void event(Player p, Cell[] cells)` - trigger the event when a player moves onto this cell. i.e., it should prompt a player to buy an unowned property, or ask the owner to build a house, or make the player to pay rent to the owner (unless the owner is in the park).
-| | | `int getRent(Player p)` - return the rent that this player needs to pay. |
-| `TrainStationPropertyCell` | Representing the Train Station cell which can't build any house and the rent is calculated differently. | Unknown. Please pay extra attention to the variables `TrainStationPropertyCell[] TRAIN_STATION_ARRAY` that is written for you. This array holds four train station objects which are used in `Gameboard`.
-| `UtilityPropertyCell` | Representing the utility cell which can't build cany house and the rent is calculated differently. | Unknown. Please pay extra attention to the variables `CANTEEN_UTILITY_CELL` and `LIBRARY_UTILITY_CELL`. These static variables holds the utility cells used in `Gameboard`.
-| `ChanceCell` | Representing the cells Chance and Community Chest. | Unknown
-| `GotoJailCell` | Representing the cell Goto Jail. | Unknown.
-| `ParkCell` | Representing the cell Cark Park. | Unknown.
-| `FunctionCell` | Representing the cells Home and Jail. There isn't any effect when a player moves to this cell via **rolling dice**. | Unknown
+| `PropertyCell` | Representing ordinary property cell  | `Player getOwner()` - Return the owner of the cell. Return `null` if it is not owned by any player. |
+| | |   `String toString()` - Return a string in the following format: 1) `<property name> owned by <owner's name> : <baseCost>` or 2) `<property name> owned by <owner's name> : <baseCost> House : <house>` Return 1) if the property have no house. Return 2) if the property has more than one house. If the property is not owned, write `-` for the owner's name. |
+| | | `void event(Player p, Cell[] cells)` - Trigger the event when a player moves onto this cell. i.e., it should prompt a player to buy an unowned property, or ask the owner to build a house, or make the player to pay rent to the owner (unless the owner is in the park).
+| | | `int getRent(Player p)` - Return the rent that this player needs to pay. |
+| `TrainStationPropertyCell` | Representing the Train Station cell which can't build any house and the rent is calculated differently. | *Unknown* - not sure what method should this class include</br>. Please pay extra attention to the variables `TrainStationPropertyCell[] TRAIN_STATION_ARRAY` that is written for you. This array holds four train station objects which are used in `Gameboard`.
+| `UtilityPropertyCell` | Representing the utility cell which can't build cany house and the rent is calculated differently. | *Unknown* - not sure what method should this class include</br>. Please pay extra attention to the variables `CANTEEN_UTILITY_CELL` and `LIBRARY_UTILITY_CELL`. These static variables holds the utility cells used in `Gameboard`.
+| `ChanceCell` | Representing the cells Chance and Community Chest. | *Unknown*
+| `GotoJailCell` | Representing the cell Goto Jail. | *Unknown*.
+| `ParkCell` | Representing the cell Cark Park. | *Unknown*.
+| `FunctionCell` | Representing the cells Home and Jail. There isn't any effect when a player moves to this cell via **rolling dice**. | *Unknown*
 
 ---
 
 ## Demo
 
 A sample program can be found here [demo](demo.jar). The sample program provides you an understanding of the program. You do not need to follow the exact wording and output format of the program except for the method `String toString()` of the class `Property` (see the specification above). 
+
+The demo include a GUI version and a command line version (which decided by typing Y or N at the start of the programme). Whenever there is a discrepancy, we follow the command line version. 
+
+**It is totally OK if your program does not work with the GUI version. We will grade your code based on the command line only.**
 
 
 
@@ -166,7 +169,7 @@ This assignment is worth 8% of the course mark.  There are three elements in the
 * 25% - The program can be compiled.
 * 65% - a working program that functions as specified 
 * 5% - Programming style and documentation 
-* up to 15% - Bonus - creative design of the assignment. You are qualified for this part only if you have received 90% mark or above.
+* up to 15% - Bonus - creative design of the assignment. You are qualified for this part only if you have received 85% mark or above. Bonus is given based on the **amount of effort** (which may not be proportion to the outcome) you have spent on it. 
 
  
 
