@@ -83,7 +83,7 @@ There isn't any trade system or mortgage rules in this assignment. Each time a p
 
 # Classes
 
-You should started with the given skeleton code which can be downloaded here: [Download Code](). There are some description on each of the class and methods that you are required to complete. Noted that you are also required to create some exact methods. The classes `Gameboard`, `GUIGameboard`, and `Cell` are finished. You should not modify these files when you submit the assignment. Even if you does, we will overwrite these files and compile your code.  
+You should started with the given code. There are some descriptions on each of the classes and methods that you are required to complete. Noted that you are also required to create some exact methods. The classes `Gameboard`, `GUIGameboard`, and `Cell` are finished. You should not modify these files when you submit the assignment. Even if you does, we will overwrite these files and compile your code.  
 
 | Class Name | Function | Methods to Implement |
 |---|---|---|
