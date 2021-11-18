@@ -94,8 +94,8 @@ public class GUIGameboard extends Application  {
         labelCells[21].setLayoutX(0);
         labelCells[21].setLayoutY(130);
 
-        ((TableColumn)tableView.getColumns().get(0)).setCellValueFactory(new PropertyValueFactory<>("name"));
-        ((TableColumn)tableView.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<>("money"));
+        ((TableColumn)tableView.getColumns().get(0)).setCellValueFactory(new PropertyValueFactory<>("Name"));
+        ((TableColumn)tableView.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<>("Money"));
 
         tableView.getItems().add(players[0]);
         tableView.getItems().add(players[1]);
