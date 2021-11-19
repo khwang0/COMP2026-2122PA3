@@ -1,5 +1,8 @@
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -94,8 +98,24 @@ public class GUIGameboard extends Application  {
         labelCells[21].setLayoutX(0);
         labelCells[21].setLayoutY(130);
 
-        ((TableColumn)tableView.getColumns().get(0)).setCellValueFactory(new PropertyValueFactory<>("Name"));
-        ((TableColumn)tableView.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<>("Money"));
+        ((TableColumn)tableView.getColumns().get(0)).setCellValueFactory( new Callback<TableColumn.CellDataFeatures<Player, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Player, String> cd) {
+                SimpleStringProperty sp = new SimpleStringProperty();
+                sp.setValue(cd.getValue().getName());
+                return sp;
+            }
+
+        });
+        ((TableColumn)tableView.getColumns().get(1)).setCellValueFactory( new Callback<TableColumn.CellDataFeatures<Player, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Player, String> cd) {
+                SimpleStringProperty sp = new SimpleStringProperty();
+                sp.setValue(cd.getValue().getMoney()+"");
+                return sp;
+            }
+
+        });
 
         tableView.getItems().add(players[0]);
         tableView.getItems().add(players[1]);
